@@ -56,12 +56,15 @@ public class CovidDataService {
             locationStats.setState(record.get("Province/State"));
             locationStats.setCountry(record.get("Country/Region"));
             locationStats.setLatestTotalCases(Integer.parseInt(record.get(record.size() - 1)));
-            System.out.println(locationStats);
             newStats.add(locationStats);
+            int latestCases = Integer.parseInt(record.get(record.size() - 1));
+            int previousCases = Integer.parseInt(record.get(record.size() - 2));
+            locationStats.setDiffFromPrevDay(latestCases - previousCases);
         }
         this.allStats = newStats;
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("hh:mm dd/MM");
         this.currentTime = dtf.format(LocalDateTime.now());
+        System.out.println("[" + this.currentTime + "] Stats updated!");
     }
 
     public List<LocationStats> getAllStats() {
