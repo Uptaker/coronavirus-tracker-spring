@@ -1,2 +1,2 @@
 # coronavirus-tracker-spring
-~blank~
+Data source: https://github.com/CSSEGISandData/COVID-19
