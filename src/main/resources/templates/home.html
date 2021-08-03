@@ -9,14 +9,14 @@
 <body>
 <div class="container">
 
-<h1>Coronavirus Tracker</h1>
+<h1 class="text-center p-5">Coronavirus Tracker</h1>
 
-<div class="bg-light p-5 rounded-lg m-3">
+<div class="bg-light p-5 rounded-lg">
     <h1 class="display-4" th:text="${totalReportedCases}"></h1>
     <p class="lead">Total cases reported as of <span th:text="${lastupdated}">today</span></p>
     <hr class="my-4">
     <p>New cases reported since previous day: <span th:text="${totalNewCases}"></span></p>
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    <a class="btn btn-primary btn-lg" href="https://github.com/Uptaker/coronavirus-tracker-spring" role="button">GitHub</a>
 </div>
 
     <table class="table table-striped table-hover">
@@ -33,7 +33,7 @@
             <td th:text="${case.country}">Country</td>
             <td th:text="${case.state}">State</td>
             <td th:text="${case.latestTotalCases}">Latest Total Cases</td>
-            <td th:text="${case.diffFromPrevDay}">Yesterday</td>
+            <td th:text="'+' + ${case.diffFromPrevDay}">Yesterday</td>
         </tr>
         </tbody>
     </table>
